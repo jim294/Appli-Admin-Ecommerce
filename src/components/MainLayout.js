@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 import {
   AiOutlineDashboard,
   AiOutlineShoppingCart,
@@ -159,10 +159,12 @@ const MainLayout = () => {
           />
           <div className="d-flex gap-4 align-items-center">
             <div className="position-relative">
-              <IoMdNotifications className="fs-4"/>
-              <span className="badge bg-warning rounded-circle p-1 position-absolute">3</span>
+              <IoMdNotifications className="fs-4" />
+              <span className="badge bg-warning rounded-circle p-1 position-absolute">
+                3
+              </span>
             </div>
-            <div className="d-flex gap-3 align-items-center">
+            <div className="d-flex gap-3 align-items-center dropdown">
               <div>
                 <img
                   src="https://portfolio-jm-deschamps.netlify.app/images/divers/moi.webp"
@@ -170,9 +172,26 @@ const MainLayout = () => {
                   style={{ width: "40px", height: "40px", borderRadius: "50%" }}
                 />
               </div>
-              <div>
+              <div
+                role="button"
+                id="dropdownMenuLink"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
                 <h5 className="mb-0">JM</h5>
                 <p className="mb-0">jeanmariedeschampstest@gmail.com</p>
+              </div>
+              <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li>
+                  <Link className="dropdown-item py-1 mb-1" style={{height:"auto", lineHeight:"20px"}} to="">
+                    View Profile
+                  </Link>
+                </li>
+                <li>
+                <Link className="dropdown-item py-1 mb-1" style={{height:"auto", "lineHeight":"20px"}} to="">
+                    Signout
+                  </Link>
+                </li>
               </div>
             </div>
           </div>
